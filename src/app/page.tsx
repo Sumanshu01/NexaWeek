@@ -4,6 +4,8 @@ import Link from "next/link";
 import BrutalCard from "@/components/BrutalCard";
 import SrujanaTypewriter from "@/components/SrujanaTypewriter";
 
+export const dynamic = "force-dynamic";
+
 async function getActiveQuiz() {
   const quiz = await prisma.quiz.findFirst({
     where: { isActive: true },
