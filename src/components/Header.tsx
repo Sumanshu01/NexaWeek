@@ -8,7 +8,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-3 group brutal-hover">
           <div className="relative w-14 h-14 brutal-border-sm bg-white overflow-hidden shrink-0">
             <Image
-              src="/COMPASS.JPEG"
+              src="/COMPASS.jpeg"
               alt="NexaSoul Logo"
               fill
               className="object-contain p-1"
