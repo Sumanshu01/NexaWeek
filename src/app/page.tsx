@@ -77,7 +77,7 @@ export default async function HomePage() {
             <div className="relative flex justify-center animate-float">
               <div className="brutal-border-lg bg-white p-6 rotate-2 max-w-sm w-full">
                 <Image
-                  src="/nexasoul-jlogo.png"
+                  src="/Nexasoul-jlogo.png"
                   alt="NexaSoul"
                   width={400}
                   height={400}
