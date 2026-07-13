@@ -13,6 +13,7 @@ export default function Header() {
               fill
               className="object-contain p-1"
               priority
+              unoptimized
             />
           </div>
           <div>
