@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: "NexaSoul × Srujana | Frontend X Full Stack Weekly Blitz",
   description:
     "NexaSoul technical club presents Srujana — weekly online events for Frontend & Full Stack developers. Week 1: Trivia Quiz Blitz!",
-  icons: { icon: "/nexasoul-jlogo.png" },
+  icons: { icon: "/nexasoul-logo.png" },
 };
 
 export default function RootLayout({

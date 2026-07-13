@@ -83,6 +83,7 @@ export default async function HomePage() {
                   height={400}
                   className="w-full h-auto"
                   priority
+                  unoptimized
                 />
               </div>
               <span className="absolute -top-4 -right-4 sticker bg-sun-yellow text-ink animate-shake text-lg">
