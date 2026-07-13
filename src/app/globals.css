@@ -1,26 +1,191 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #fff8e7;
+  --hot-pink: #ff2d6a;
+  --electric-blue: #0066ff;
+  --light-blue: #b8d9f5;
+  --sun-yellow: #ffe600;
+  --mint: #00e5a0;
+  --coral: #ff6b4a;
+  --ink: #1a1a2e;
+  --paper: #fffdf5;
+  --border: #1a1a2e;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: var(--cream);
+  --color-hot-pink: var(--hot-pink);
+  --color-electric-blue: var(--electric-blue);
+  --color-light-blue: var(--light-blue);
+  --color-sun-yellow: var(--sun-yellow);
+  --color-mint: var(--mint);
+  --color-coral: var(--coral);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --font-serif: var(--font-playfair);
+  --font-display: var(--font-fraunces);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+  overflow-x: hidden;
+}
+
+.brutal-border {
+  border: 4px solid var(--border);
+  box-shadow: 6px 6px 0 var(--border);
+}
+
+.brutal-border-sm {
+  border: 3px solid var(--border);
+  box-shadow: 4px 4px 0 var(--border);
+}
+
+.brutal-border-lg {
+  border: 5px solid var(--border);
+  box-shadow: 8px 8px 0 var(--border);
+}
+
+.brutal-hover {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.brutal-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0 var(--border);
+}
+
+.brutal-hover:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--border);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-pop-in {
+  animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease forwards;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% { box-shadow: 6px 6px 0 var(--border); }
+  50% { box-shadow: 8px 8px 0 var(--hot-pink); }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+.pattern-dots {
+  background-image: radial-gradient(var(--hot-pink) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter-cursor {
+  animation: blink-cursor 0.75s step-end infinite;
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+.pattern-stripes {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--light-blue),
+    var(--light-blue) 10px,
+    var(--cream) 10px,
+    var(--cream) 20px
+  );
+}
+
+.sticker {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: rotate(-2deg);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--hot-pink), var(--electric-blue), var(--coral));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+  border-left: 3px solid var(--border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hot-pink);
+  border: 2px solid var(--border);
 }
