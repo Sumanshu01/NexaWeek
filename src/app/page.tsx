@@ -45,11 +45,11 @@ export default async function HomePage() {
                 Welcome to{" "}
                 <SrujanaTypewriter />
               </h1>
-              <p className="text-xl md:text-2xl font-semibold mb-4 text-ink/80">
+              <p className="text-xl md:text-2xl font-semibold mb-4 text-ink/100">
                 NexaSoul&apos;s weekly online campaign for Frontend × Full Stack devs who
                 actually touch grass… online.
               </p>
-              <p className="text-lg mb-8 text-ink/70">
+              <p className="text-lg mb-8 text-ink/90">
                 Week 1 drops a <strong>20-question trivia blitz</strong> — 20 minutes,
                 speed bonuses, and absolutely zero timer peeking. Lock in. No cap.
               </p>

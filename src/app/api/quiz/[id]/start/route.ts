@@ -44,6 +44,23 @@ export async function POST(
     return NextResponse.json({ error: "Deadline passed" }, { status: 403 });
   }
 
+  const existingAttempt = await prisma.attempt.findFirst({
+    where: {
+      quizId: id,
+      participantEmail: {
+        equals: participantEmail.trim(),
+        mode: "insensitive",
+      },
+    },
+  });
+
+  if (existingAttempt) {
+    return NextResponse.json(
+      { error: "This email has already attempted this quiz" },
+      { status: 400 }
+    );
+  }
+
   const attempt = await prisma.attempt.create({
     data: {
       quizId: id,

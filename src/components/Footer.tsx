@@ -42,7 +42,7 @@ export default function Footer() {
             >
               NexaSoul Socials
             </h3>
-            <p className="text-ink/70 mt-2 font-medium">
+            <p className="text-ink/90 mt-2 font-medium">
               Frontend × Full Stack. Weekly online. Always unhinged (in a good way).
             </p>
           </div>

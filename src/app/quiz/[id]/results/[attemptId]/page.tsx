@@ -14,9 +14,15 @@ export default function ResultsPage({
 }) {
   const [result, setResult] = useState<AttemptResult | null>(null);
   const [loading, setLoading] = useState(true);
+  const [wasTerminated, setWasTerminated] = useState(false);
 
   useEffect(() => {
     params.then(({ attemptId }) => {
+      const count = parseInt(sessionStorage.getItem(`switchCount_${attemptId}`) || "0", 10);
+      if (count >= 2) {
+        setWasTerminated(true);
+      }
+
       fetch(`/api/attempts/${attemptId}/results`)
         .then((r) => r.json())
         .then((data) => {
@@ -71,6 +77,18 @@ export default function ResultsPage({
           </h1>
           <p className="text-ink/60 font-medium">The receipts are in. No cap.</p>
         </div>
+
+        {wasTerminated && (
+          <div className="mb-8 brutal-border bg-coral text-white p-6 animate-pop-in">
+            <div className="flex flex-col md:flex-row items-center gap-4 justify-center">
+              <span className="text-4xl animate-bounce">🚨</span>
+              <div className="text-center md:text-left">
+                <h2 className="text-2xl font-black uppercase">Quiz Terminated</h2>
+                <p className="font-semibold text-white/90">This attempt was terminated due to a window or tab switch violation.</p>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
           <StatCard label="Total Score" value={result.totalScore.toString()} color="bg-hot-pink text-white" big />
